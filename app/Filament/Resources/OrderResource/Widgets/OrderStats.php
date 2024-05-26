@@ -12,10 +12,12 @@ class OrderStats extends BaseWidget
     protected function getStats(): array
     {
         return [
-            // Stat::make('Baru', Order::query()->where('status', 'baru')->count()),
+            Stat::make('Baru', Order::query()->where('status', 'baru')->count()),
             Stat::make('Diproses', Order::query()->where('status', 'diproses')->count()),
             Stat::make('Dikirim', Order::query()->where('status', 'dikirim')->count()),
-            Stat::make('Penjualan', Number::currency(Order::query()->avg('grand_total')))
+            Stat::make('Terkirim', Order::query()->where('status', 'terkirim')->count()),
+            // Stat::make('Dibatalkan', Order::query()->where('status', 'dibatalkan')->count()),
+            // Stat::make('Penjualan', Number::currency(Order::query()->avg('grand_total')))
         ];
     }
 }

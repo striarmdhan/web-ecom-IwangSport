@@ -16,4 +16,5 @@ class SaleStats extends BaseWidget
             Stat::make('Penjualan', Number::currency(Order::query()->avg('grand_total')))
         ];
     }
+
 }

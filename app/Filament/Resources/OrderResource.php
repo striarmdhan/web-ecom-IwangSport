@@ -40,6 +40,8 @@ class OrderResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
+    protected static ?int $navigationSort = 4;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -47,7 +49,7 @@ class OrderResource extends Resource
                 Group::make()->schema([
                     Section::make('Informasi Pesanan')->schema([
                         Select::make('user_id')
-                            ->label('Customer')
+                            ->label('Admin')
                             ->relationship('user', 'name')
                             ->searchable()
                             ->preload()
@@ -203,7 +205,13 @@ class OrderResource extends Resource
                 TextColumn::make('payment_status')
                     ->label('Status Pembayaran')
                     ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->badge()
+                    ->color(fn (string $state): string => match($state){
+                        'pending' => 'warning',
+                        'terbayar' => 'success',
+                        'gagal' => 'danger'
+                    }),
 
                 TextColumn::make('shipping_method')
                     ->label('Pengiriman')

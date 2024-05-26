@@ -62,7 +62,12 @@ class LatestOrders extends BaseWidget {
                     ->label('Status Pembayaran')
                     ->sortable()
                     ->searchable()
-                    ->badge(),
+                    ->badge()
+                    ->color(fn (string $state): string => match($state){
+                        'pending' => 'warning',
+                        'terbayar' => 'success',
+                        'gagal' => 'danger'
+                    }),
 
                 TextColumn::make('created_at')
                     ->dateTime()
