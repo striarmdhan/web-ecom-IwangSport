@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
+use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
 use App\Models\Order;
 use App\Models\Product;
 use Filament\Forms;
@@ -39,6 +40,8 @@ class OrderResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
+    protected static ?int $navigationSort = 4;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -46,7 +49,7 @@ class OrderResource extends Resource
                 Group::make()->schema([
                     Section::make('Informasi Pesanan')->schema([
                         Select::make('user_id')
-                            ->label('Customer')
+                            ->label('Admin')
                             ->relationship('user', 'name')
                             ->searchable()
                             ->preload()
@@ -92,21 +95,21 @@ class OrderResource extends Resource
                             ->options([
                                 'baru' => 'Baru',
                                 'diproses' => 'Diproses',
-                                'perjalanan' => 'Dalam Perjalanan',
+                                'dikirim' => 'Dikirim',
                                 'terkirim' => 'Terkirim',
                                 'dibatalkan' => 'Dibatalkan'
                             ]) 
                             ->colors([
                                 'baru' => 'info',
                                 'diproses' => 'warning',
-                                'perjalanan' => 'success',
+                                'dikirim' => 'warning',
                                 'terkirim' => 'success',
                                 'dibatalkan' => 'danger'
                             ])
                             ->icons([
                                 'baru' => 'heroicon-m-plus-circle',
                                 'diproses' => 'heroicon-m-arrow-path',
-                                'perjalanan' => 'heroicon-m-truck',
+                                'dikirim' => 'heroicon-m-truck',
                                 'terkirim' => 'heroicon-m-check-badge',
                                 'dibatalkan' => 'heroicon-m-x-circle'
                             ]),    
@@ -120,7 +123,6 @@ class OrderResource extends Resource
                         Repeater::make('items')
                         ->relationship()
                         ->schema([
-
                             Select::make('product_id')
                                 ->relationship('product', 'name')
                                 ->searchable()
@@ -172,7 +174,6 @@ class OrderResource extends Resource
                             return Number::currency($total, 'IDR');
                         }),
                         
-                        // hereee
                         Hidden::make('grand_total')
                             ->default(0)
                     ])
@@ -204,7 +205,13 @@ class OrderResource extends Resource
                 TextColumn::make('payment_status')
                     ->label('Status Pembayaran')
                     ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->badge()
+                    ->color(fn (string $state): string => match($state){
+                        'pending' => 'warning',
+                        'terbayar' => 'success',
+                        'gagal' => 'danger'
+                    }),
 
                 TextColumn::make('shipping_method')
                     ->label('Pengiriman')
@@ -216,7 +223,7 @@ class OrderResource extends Resource
                     ->options([
                         'baru' => 'Baru',
                         'diproses' => 'Diproses',
-                        'perjalanan' => 'Dalam Perjalanan',
+                        'dikirim' => 'Dikirim',
                         'terkirim' => 'Terkirim',
                         'dibatalkan' => 'Dibatalkan'
                     ])
@@ -253,7 +260,7 @@ class OrderResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            AddressRelationManager::class
         ];
     }
 
