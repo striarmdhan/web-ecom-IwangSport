@@ -16,6 +16,7 @@ class ListOrders extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            Actions\ExportAction::make('Laporan Order')->url(fn()=> route('download.test'))->openUrlInNewTab(),
             Actions\CreateAction::make(),
         ];
     }
