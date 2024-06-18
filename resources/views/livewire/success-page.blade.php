@@ -11,11 +11,14 @@
                         <div class="flex items-center justify-center w-full pb-6 space-x-4 md:justify-start">
                             <div class="flex flex-col items-start justify-start space-y-2">
                                 <p class="text-lg font-semibold leading-4 text-left text-gray-800 dark:text-gray-400">
-                                    {{$order->address->full_name}}</p>
-                                <p class="text-sm leading-4 text-gray-600 dark:text-gray-400">{{$order->address->street_addres}}</p>
-                                <p class="text-sm leading-4 text-gray-600 dark:text-gray-400">{{$order->address->city}}, {{$order->address->state}},
-                                {{$order->address->zip_code}}</p>
-                                <p class="text-sm leading-4 cursor-pointer dark:text-gray-400">Phone: {{$order->address->phone}}</p>
+                                    {{ $order->address->full_name }}</p>
+                                <p class="text-sm leading-4 text-gray-600 dark:text-gray-400">
+                                    {{ $order->address->street_addres }}</p>
+                                <p class="text-sm leading-4 text-gray-600 dark:text-gray-400">
+                                    {{ $order->address->city }}, {{ $order->address->state }},
+                                    {{ $order->address->zip_code }}</p>
+                                <p class="text-sm leading-4 cursor-pointer dark:text-gray-400">Phone:
+                                    {{ $order->address->phone }}</p>
                             </div>
                         </div>
                     </div>
@@ -25,28 +28,28 @@
                         <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
                             Order Number: </p>
                         <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400">
-                          {{$order->id}}
+                            {{ $order->id }}
                         </p>
                     </div>
                     <div class="w-full px-4 mb-4 md:w-1/4">
                         <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
                             Date: </p>
                         <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400">
-                          {{$order->created_at->format('d-m-Y')}}
+                            {{ $order->created_at->format('d-m-Y') }}
                         </p>
                     </div>
                     <div class="w-full px-4 mb-4 md:w-1/4">
                         <p class="mb-2 text-sm font-medium leading-5 text-gray-800 dark:text-gray-400 ">
                             Total: </p>
                         <p class="text-base font-semibold leading-4 text-blue-600 dark:text-gray-400">
-                          {{Number::currency($order->grand_total)}}  
+                            {{ Number::currency($order->grand_total) }}
                         </p>
                     </div>
                     <div class="w-full px-4 mb-4 md:w-1/4">
                         <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
                             Payment Method: </p>
                         <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400 ">
-                          {{$order->payment_method == 'cod'? 'Cash On Delivery':'Card'}}
+                            {{ $order->payment_method == 'cod' ? 'Cash On Delivery' : 'Transfer' }}
                         </p>
                     </div>
                 </div>
@@ -59,22 +62,25 @@
                                 class="flex flex-col items-center justify-center w-full pb-4 space-y-4 border-b border-gray-200 dark:border-gray-700">
                                 <div class="flex justify-between w-full">
                                     <p class="text-base leading-4 text-gray-800 dark:text-gray-400">Subtotal</p>
-                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">{{Number::currency($order->grand_total)}}</p>
+                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">
+                                        {{ Number::currency($order->grand_total) }}</p>
                                 </div>
                                 <div class="flex items-center justify-between w-full">
                                     <p class="text-base leading-4 text-gray-800 dark:text-gray-400">Discount
                                     </p>
-                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">{{Number::currency(0)}}</p>
+                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">
+                                        {{ Number::currency(0) }}</p>
                                 </div>
                                 <div class="flex items-center justify-between w-full">
                                     <p class="text-base leading-4 text-gray-800 dark:text-gray-400">Shipping</p>
-                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">{{Number::currency(0)}}</p>
+                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">
+                                        {{ Number::currency(0) }}</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between w-full">
                                 <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400">Total</p>
                                 <p class="text-base font-semibold leading-4 text-gray-600 dark:text-gray-400">
-                                  {{Number::currency($order->grand_total)}}
+                                    {{ Number::currency($order->grand_total) }}
                                 </p>
                             </div>
                         </div>
@@ -98,7 +104,8 @@
                                         </p>
                                     </div>
                                 </div>
-                                <p class="text-lg font-semibold leading-6 text-gray-800 dark:text-gray-400">{{Number::currency(0)}}</p>
+                                <p class="text-lg font-semibold leading-6 text-gray-800 dark:text-gray-400">
+                                    {{ Number::currency(0) }}</p>
                             </div>
                         </div>
                     </div>

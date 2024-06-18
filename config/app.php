@@ -123,4 +123,14 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // 'providers' => [
+    //     // Penyedia Layanan Lainnya...
+    //     Barryvdh\DomPDF\ServiceProvider::class,
+    // ],
+
+    // 'aliases' => [
+    //     // Alias Lainnya...
+    //     'PDF' => Barryvdh\DomPDF\Facade\PDF::class,
+    // ],
+
 ];

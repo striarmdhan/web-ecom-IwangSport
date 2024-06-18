@@ -46,12 +46,12 @@ class UserResource extends Resource
                     ->label('Diverifikasi')
                     ->default(now()),
                     
-                Forms\Components\TextInput::make('password')
-                    ->label('Kata Sandi')
-                    ->password()
-                    // ->visibleOn('create')
-                    ->dehydrated(fn ($state) => filled($state))
-                    ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord),
+                // Forms\Components\TextInput::make('password')
+                //     ->label('Kata Sandi')
+                //     ->password()
+                //     // ->visibleOn('create')
+                //     ->dehydrated(fn ($state) => filled($state))
+                //     ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord),
             ]);
     }
 

@@ -1,21 +1,20 @@
 <div>
     {{-- Hero Section Start --}}
-    <div class="w-full h-screen bg-gradient-to-r from-blue-200 to-cyan-200 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full h-screen py-0 px-4 sm:px-6 lg:px-8 mx-auto"style="background-image: url('{{ asset('img/tos.png') }}'); background-size: cover; background-position: center;">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8" style="padding-top: 100px;">
             <!-- Grid -->
             <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
                 <div>
                     <h1
                         class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
-                        Start your journey with <span class="text-blue-600">DCodeMania</span></h1>
-                    <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Purchase wide varities of electronics
-                        products like Smartphones, Laptops, Smartwatches, Television and many more.</p>
+                        Awali Di <span class="text-blue-600">Iwang Sport</span></h1>
+                    <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Beli macam-macam celana disini, untuk kebutuhan toko anda</p>
 
                     <!-- Buttons -->
                     <div class="mt-7 grid gap-3 w-full sm:inline-flex">
                         <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/register">
-                            Get started
+                            Mualai dari sini
                             <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
@@ -23,8 +22,8 @@
                             </svg>
                         </a>
                         <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            href="/contact">
-                            Contact sales team
+                            href="https://wa.me/0895377096670">
+                            Hubungi Pengguna
                         </a>
                     </div>
                     <!-- End Buttons -->
@@ -158,7 +157,7 @@
                 </div>
                 <!-- End Col -->
 
-                <div class="relative ms-4">
+                {{-- <div class="relative ms-4">
                     <img class="w-full rounded-md"
                         src="https://static.vecteezy.com/system/resources/previews/011/993/278/non_2x/3d-render-online-shopping-bag-using-credit-card-or-cash-for-future-use-credit-card-money-financial-security-on-mobile-3d-application-3d-shop-purchase-basket-retail-store-on-e-commerce-free-png.png"
                         alt="Image Description">
@@ -190,7 +189,7 @@
                         </svg>
                     </div>
                     <!-- End SVG-->
-                </div>
+                </div> --}}
                 <!-- End Col -->
             </div>
             <!-- End Grid -->
@@ -202,8 +201,8 @@
         <div class="max-w-xl mx-auto">
             <div class="text-center ">
                 <div class="relative flex flex-col items-center">
-                    <h1 class="text-5xl font-bold dark:text-gray-200"> Browse Popular<span class="text-blue-500">
-                            Brands
+                    <h1 class="text-5xl font-bold dark:text-gray-200"> Produk <span class="text-blue-500">
+                            Utama
                         </span> </h1>
                     <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
                         <div class="flex-1 h-2 bg-blue-200">
@@ -215,9 +214,7 @@
                     </div>
                 </div>
                 <p class="mb-12 text-base text-center text-gray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus magni eius eaque?
-                    Pariatur
-                    numquam, odio quod nobis ipsum ex cupiditate?
+                    Merupakan Produk yang kami banggakan dan merupakan yang paling banyak diorder oleh  konsumen, dengan kualitas yang baik
                 </p>
             </div>
         </div>
@@ -226,48 +223,48 @@
 
                 <div class="bg-white rounded-lg shadow-md dark:bg-gray-800">
                     <a href="" class="">
-                        <img src="https://i.pinimg.com/originals/a0/97/c3/a097c3c89b6d9a14f52f9515395d5220.png"
+                        <img src="{{ asset('img/celanapendek.png') }}"
                             alt="" class="object-cover w-full h-64 rounded-t-lg">
                     </a>
                     <div class="p-5 text-center">
                         <a href="" class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
-                            Apple
+                            Celana Pendek
                         </a>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md dark:bg-gray-800">
                     <a href="" class="">
-                        <img src="https://i.pinimg.com/originals/1d/35/83/1d35833251dec0ad373ad7cbbbf4f3e2.png"
+                        <img src="{{ asset('img/celanajoger.png') }}"
                             alt="" class="object-cover w-full h-64 rounded-t-lg">
                     </a>
                     <div class="p-5 text-center">
                         <a href="" class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
-                            Samsung
+                            Celana Joger
                         </a>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md dark:bg-gray-800">
                     <a href="" class="">
-                        <img src="https://salesindia.com/media/codazon_cache/brand/400x400/wysiwyg/codazon/main-content-22/Brand_logo/ONEPLUS_LOGO_.png"
+                        <img src="{{ asset('img/celanatraining.png') }}"
                             alt="" class="object-cover w-full h-64 rounded-t-lg">
                     </a>
                     <div class="p-5 text-center">
                         <a href="" class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
-                            One Plus
+                            Celana Training
                         </a>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md dark:bg-gray-800">
                     <a href="" class="">
-                        <img src="https://i.pinimg.com/originals/72/15/96/721596edd1de9db231a385d52a9081f8.png"
+                        <img src="{{ asset('img/celanasweat.png') }}"
                             alt="" class="object-cover w-full h-64 rounded-t-lg">
                     </a>
                     <div class="p-5 text-center">
                         <a href="" class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
-                            Xiaomi
+                            Celana Sweat
                         </a>
                     </div>
                 </div>
@@ -280,7 +277,7 @@
         <div class="max-w-xl mx-auto">
             <div class="text-center ">
                 <div class="relative flex flex-col items-center">
-                    <h1 class="text-5xl font-bold dark:text-gray-200"> Browse <span class="text-blue-500"> Categories
+                    <h1 class="text-5xl font-bold dark:text-gray-200"> Kategori <span class="text-blue-500"> Yang Ada
                         </span> </h1>
                     <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
                         <div class="flex-1 h-2 bg-blue-200">
@@ -292,9 +289,7 @@
                     </div>
                 </div>
                 <p class="mb-12 text-base text-center text-gray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus magni eius eaque?
-                    Pariatur
-                    numquam, odio quod nobis ipsum ex cupiditate?
+                    Kategori celana yang kami miliki di Iwang Sport
                 </p>
             </div>
         </div>
@@ -353,9 +348,8 @@
                         </div>
                     </div>
                     <p class="mb-12 text-base text-center text-gray-500">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus magni eius eaque?
-                        Pariatur
-                        numquam, odio quod nobis ipsum ex cupiditate?
+                        Eksplorasi Seru dalam Berbelanja Celana Olahraga di Iwang Sport - <br> 
+                        Temukan Pengalaman Berbelanja yang Memukau di website Iwang Sport
                     </p>
                 </div>
             </div>
@@ -379,8 +373,7 @@
                         </p>
                     </div>
                     <p class="px-6 mb-6 text-base text-gray-500 dark:text-gray-400">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem cupiditate similique,
-                        iure minus sed fugit obcaecati minima quam reiciendis dicta!
+                        Sebagai pecinta olahraga, saya sering kesulitan menemukan celana olahraga yang nyaman dan stylish. Namun, setelah menemukan iwangsport, semuanya berubah. Mereka memiliki koleksi celana olahraga yang luar biasa dengan berbagai pilihan gaya dan warna. Layanan pelanggan mereka juga sangat membantu. Sangat puas dengan pembelian saya dan pasti akan kembali lagi!
                     </p>
                     <div class="flex flex-wrap justify-between pt-4 border-t dark:border-gray-700">
                         <div class="flex px-6 mb-2 md:mb-0">

@@ -49,7 +49,7 @@ class OrderResource extends Resource
                 Group::make()->schema([
                     Section::make('Informasi Pesanan')->schema([
                         Select::make('user_id')
-                            ->label('Admin')
+                            ->label('Nama Pelanggan')
                             ->relationship('user', 'name')
                             ->searchable()
                             ->preload()
@@ -240,6 +240,7 @@ class OrderResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])

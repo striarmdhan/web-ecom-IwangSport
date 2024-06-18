@@ -68,6 +68,7 @@ class ProductResource extends Resource
 
                         MarkdownEditor::make('description')
                             ->columnSpanFull()
+                            ->required()
                             ->fileAttachmentsDirectory('products')
                     ])->columns(2),
                     
@@ -93,7 +94,7 @@ class ProductResource extends Resource
 
                     Section::make('Harga Produk')->schema([
                         TextInput::make('price')
-                            ->numeric()
+                            // ->numeric()
                             ->required()
                             ->prefix('IDR')
                     ]),

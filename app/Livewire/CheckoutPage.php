@@ -105,18 +105,19 @@ class CheckoutPage extends Component{
 
         $redirect_url = '';
 
-        if($this->payment_method == 'stripe'){
-            Stripe::setApiKey(env('STRIPE_SECRET'));
-            $sessionCheckout = Session::create([
-                'payment_method_types' => ['card'],
-                'customer_email' => auth()->user()->email,
-                'line_items' => $line_items,
-                'mode' => 'payment',
-                'success_url' => route('success') . '?session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => route('cancel'),
-            ]);
+        if($this->payment_method == 'transfer'){
+            $redirect_url = route('success');
+            // Stripe::setApiKey(env('STRIPE_SECRET'));
+            // $sessionCheckout = Session::create([
+            //     'payment_method_types' => ['card'],
+            //     'customer_email' => auth()->user()->email,
+            //     'line_items' => $line_items,
+            //     'mode' => 'payment',
+            //     'success_url' => route('success') . '?session_id={CHECKOUT_SESSION_ID}',
+            //     'cancel_url' => route('cancel'),
+            // ]);
 
-            $redirect_url = $sessionCheckout->url;
+            
         }else{
             $redirect_url = route('success');
         }
@@ -135,6 +136,11 @@ class CheckoutPage extends Component{
         Mail::to(request()->user())->send(new OrderPlaced($order)); 
         return redirect($redirect_url);
     }
+
+    // public function updatedPaymentMethod($value)
+    // {
+    //     $this->emit('paymentMethodUpdated', $value);
+    // }
 
     public function render(){
         $cart_items = CartManagement::getCartItemsFromCookie();

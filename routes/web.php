@@ -50,4 +50,5 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::get('download', [PDFController::class, 'downloadpdf'])->name('download.test'); 
+// Route::get('stripe-checkout', ['checkout'])->name('stripe.checkout');
 

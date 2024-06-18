@@ -124,9 +124,9 @@
                                 </svg>
                             </label>
                         </li>
+
                         <li>
-                            <input wire:model='payment_method' class="hidden peer" id="hosting-big" type="radio"
-                                value="transfer">
+                            <input wire:model='payment_method' class="hidden peer" id="hosting-big" type="radio" value="transfer">
                             <label
                                 class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                                 for="hosting-big">
@@ -144,6 +144,7 @@
                             </label>
                             </input>
                         </li>
+
                     </ul>
                     @error('payment_method')
                         <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -231,4 +232,56 @@
             </div>
         </div>
     </form>
-</div>
+
+    
+
+    <div class="modal hidden fixed inset-0 flex items-center justify-center z-10" id="qrPopup">
+        <div class="modal-overlay fixed inset-0 bg-black opacity-60 overflow-hidden"></div>
+
+        <div class="modal-dialog bg-white rounded-lg shadow-lg p-8 relative w-1/2 h-3/4" style="padding: 10px;">
+            <div class="modal-header flex justify-between items-center mb-1">
+                <h5 class="modal-title text-xl font-semibold mx-auto" style="text-align: center;" id="qrPopupLabel">Scan QR Code to Pay via WhatsApp</h5>
+
+                <button type="button" class="text-gray-500 hover:text-gray-700" onclick="hideModal()" style="position: relative; top: -10px;">
+                    <span aria-hidden="true" style="font-size: 30px;">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="{{ asset('img/qr.png') }}" alt="QR Code" class="mx-auto mb-1" width="350" height="350">
+                <p class="text-center">
+                    <a href="https://wa.me/0895377096670" class="text-blue-500 hover:text-blue-700"><button class="bg-green-500 mt-4 w-1/2 p-2 rounded-lg text-lg text-white hover:bg-green-600">Lanjut ke whatsapp</button></a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const transferRadioButton = document.getElementById('hosting-big');
+        const codRadioButton = document.getElementById('hosting-small');
+        const qrPopup = document.getElementById('qrPopup');
+
+        function showModal() {
+            qrPopup.classList.remove('hidden');
+        }
+
+        function hideModal() {
+            qrPopup.classList.add('hidden');
+        }
+
+        transferRadioButton.addEventListener('change', function () {
+            if (this.checked) {
+                showModal();
+            }
+        });
+
+        codRadioButton.addEventListener('change', function () {
+            if (this.checked) {
+                hideModal();
+            }
+        });
+
+        window.hideModal = hideModal; // Expose hideModal function globally for close button
+    });
+</script>
+
